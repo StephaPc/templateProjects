@@ -4,25 +4,55 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-var tnsSingle = exports.tnsSingle = function tnsSingle() {
-	var slider = tns({
-		container: '#tnsSingle',
-		items: 1,
-		slideBy: 1,
-		speed: 1000,
-		mode: 'gallery',
-		mouseDrag: true,
-		controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
-	});
-};
+
+
+try {
+    var tnsSingle = exports.tnsSingle = function tnsSingle() {
+        var slider = tns({
+            container: '#tnsSingle',
+            items: 1,
+            slideBy: 1,
+            speed: 1000,
+            mode: 'gallery',
+            mouseDrag: true,
+            controlsText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
+        });
+    };
+} catch (error) {
+}
 
 },{}],2:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var topNav = exports.topNav = function topNav() {
+	// Aqui definimos las variables
+	var d = document,
+	    headerBtn = d.querySelector('.hamburger'),
+	    menu = d.querySelector('.top-nav__menu');
+
+	// aqui creamos la funcion que ejecuta el toogle del menu
+	headerBtn.addEventListener('click', function (e) {
+		e.preventDefault();
+		headerBtn.classList.toggle('is-active'), menu.classList.toggle('is-active');
+	});
+};
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+var _topNav = require('./components/topNav');
+
 var _tnsSlider = require('./components/tns-slider');
 
-(0, _tnsSlider.tnsSingle)();
+try {
+    (0, _tnsSlider.tnsSingle)();
+} catch (error) {
+}
+(0, _topNav.topNav)();
 
-},{"./components/tns-slider":1}]},{},[2]);
+},{"./components/tns-slider":1,"./components/topNav":2}]},{},[3]);
 
 //# sourceMappingURL=scripts-min.js.map
